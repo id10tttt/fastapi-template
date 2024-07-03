@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
+FROM registry.cn-shanghai.aliyuncs.com/odoo-1di0t/uvicorn-gunicorn-fastapi:python3.10
 
 WORKDIR /app/
 
