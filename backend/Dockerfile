@@ -2,6 +2,7 @@ FROM registry.cn-shanghai.aliyuncs.com/odoo-1di0t/uvicorn-gunicorn-fastapi:pytho
 
 WORKDIR /app/
 
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 # Install Poetry
 RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
     cd /usr/local/bin && \
@@ -9,7 +10,7 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python
     poetry config virtualenvs.create false
 
 # Copy poetry.lock* in case it doesn't exist in the repo
-COPY ./pyproject.toml ./poetry.lock* /app/
+COPY ./pyproject.toml /app/
 
 # Allow installing dev dependencies to run tests
 ARG INSTALL_DEV=false

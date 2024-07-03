@@ -38,6 +38,7 @@ services:
   backend:
     image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
     restart: always
+    container_name: "backend-fastapi"
     networks:
       - traefik-public
       - default
@@ -97,6 +98,7 @@ services:
   frontend:
     image: '${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}'
     restart: always
+    container_name: "frontend-fastapi"
     networks:
       - traefik-public
       - default
