@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:12
+    image: registry.cn-shanghai.aliyuncs.com/odoo-1di0t/postgres:12
     restart: always
     volumes:
       - app-db-data:/var/lib/postgresql/data/pgdata
@@ -13,7 +13,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB?Variable not set}
 
   adminer:
-    image: adminer
+    image: registry.cn-shanghai.aliyuncs.com/odoo-1di0t/adminer
     restart: always
     networks:
       - traefik-public
